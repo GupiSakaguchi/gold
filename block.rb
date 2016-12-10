@@ -9,3 +9,6 @@ pro.call
 
 y = 2
 p func(1,&pro)
+
+lmd = ->(x) {3}
+#lmd.call
