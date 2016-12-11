@@ -24,13 +24,29 @@ class Parent
 end
 
 class Child < Parent
-  
+  def greet(name)
+    puts name
+  end
 end
 
 p Child.superclass
 child = Child.new
-child.greet
+#child.greet
 
+child.greet("say hello")
+
+#singleton_method
+class Foo
+end
+
+foo = Foo.new
+bar = Foo.new
+
+def bar.singleton_method
+  puts "bar"
+end
+bar.singleton_method
+#foo.singleton_method
 
 
 
