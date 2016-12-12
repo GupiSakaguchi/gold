@@ -1,12 +1,3 @@
-
-def method_missing(meth, *args, &blk)
-  
-end
-
-class Hoge
-  
-end
-
 external_scope = 1
 NewDefineClass = Class.new do
   puts external_scope
@@ -34,6 +25,23 @@ class Numeric
 end
 
 p 10.steps
+
+#method_missing
+def method_missing(name,*args)
+  @array.__send__ name,*args
+end
+
+class DelegateArray
+  def initialize
+    @array = []
+  end
+end
+
+darray = DelegateArray.new
+p darray << 1
+
+
+
 
 
 

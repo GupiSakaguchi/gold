@@ -59,3 +59,4 @@ bar.singleton_method
 
 
 
+
