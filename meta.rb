@@ -28,7 +28,7 @@ p 10.steps
 
 #method_missing
 def method_missing(name,*args)
-  @array.__send__ name,*args
+  @array.send name,*args
 end
 
 class DelegateArray
