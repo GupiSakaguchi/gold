@@ -48,14 +48,30 @@ end
 bar.singleton_method
 #foo.singleton_method
 
+module A
+end
 
+module B
+  include A
+end
 
+class C
+  #include A
+  include B
+end
 
+p C.ancestors
 
+class D
+  prepend A
+end
 
+class E 
+  include A
+end
 
-
-
+p D.ancestors
+p E.ancestors
 
 
 
