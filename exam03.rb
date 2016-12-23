@@ -86,6 +86,64 @@ end
 
 puts T.x
 
+#date/Rational
+require "Date"
+d1 = DateTime.new
+d2 = DateTime.new
+
+p d2-d1
+p (d2-d1).class
+
+#include
+module Mod
+  def foo 
+    puts "mod"
+  end
+end
+
+class C1
+  def foo
+    "cls1"
+  end
+end
+
+class C2 < C1
+  #include Mod => error
+  prepend Mod #=> no error
+  undef foo
+end
+
+c2 = C2.new
+c2.foo
+
+# yaml
+require "yaml"
+dir = <<EOY
+file1:
+  name: app.rb
+  date: ruby
+EOY
+
+p YAML.load(dir)
+
+class CO1
+  @@x = 1
+  MSG = "msg1"
+  MSG2 = "msg2"
+  class CO2
+    @@x = 2
+    MSG = "CO2:msg1"
+    puts MSG
+    puts MSG2
+    puts @@x
+  end
+  puts MSG
+  puts MSG2
+  puts @@x
+end
+
+
+
   
   
   
