@@ -34,3 +34,24 @@ c.call_piyo
 
 d = D.new 
 d.hogehoge
+
+module Gc
+  def gen
+    puts "a"
+  end
+end
+  
+class G
+  def gen 
+    puts "b"
+  end
+  #include Gca
+  prepend Gc
+end 
+p G.ancestors
+g = G.new
+g.gen
+
+class C
+  puts "gengen"
+end
