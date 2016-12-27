@@ -27,3 +27,32 @@ class Bar < Foo
  #undef foo
 end
 puts Bar.new.bar
+
+#可変長引数
+class D
+  def hoge(*a)
+    p a
+  end
+end
+
+d = D.new
+d.hoge("A","B","C")
+
+#super
+class A
+  def initialize( *rest )
+    puts "*rest2=#{rest}"
+    p rest
+  end
+end
+
+class B < A
+  def initialize( first, *rest )
+    puts "first1=#{first}"
+    puts "rest1=#{rest}"
+    super
+    super()
+  end
+end
+obj1 = B.new("A", "B", "C", "D", "E")
+
