@@ -56,3 +56,57 @@ class B < A
 end
 obj1 = B.new("A", "B", "C", "D", "E")
 
+puts "Foo" 
+
+begin 
+  catch(:exit){ 
+    puts "Bar" 
+    throw :EXIT
+  } 
+rescue ArgumentError 
+  puts "Hoge" 
+end 
+
+puts "Piyo"
+
+#initialize
+class C1
+  def initialize
+    puts "A"
+  end
+end
+
+class C2 < C1
+  # C1のinitializeが実行される
+  # def initialize
+  #   super
+  # end
+end
+
+b = C2.new
+
+#error
+begin
+  a
+rescue => ex
+  puts ex
+end
+
+#exption/return
+v = 0
+returned =
+  begin
+    b.a
+    raise
+    2
+  rescue => e
+    puts e
+    p e.class
+    3
+  ensure 
+    puts "ensure"
+    4 # 評価されない
+  end
+p returned
+
+
